@@ -1,0 +1,282 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" auto reload vimrc
+autocmd bufwritepost .vimrc source $MYVIMRC
+
+" Be IMproved
+set nocompatible
+
+" file encodings
+set fileencodings=utf-8,cp936,big5,gb2312,gbk,gb18030
+" internal encoding
+set encoding=utf-8
+
+" Set wild menu & mode
+set wildmenu
+
+" set wild mode
+set wildmode=longest:full,full
+
+" Auto change current directory
+set autochdir
+
+" set mouse
+" set mouse=a
+
+" Lines folding
+" set foldenable
+" set foldnestmax=1
+" set foldmethod=syntax
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Backup
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable backup
+set backup
+
+" Set backup directory
+set backupdir=~/.vim/backup
+
+" Set swap file directory
+set directory=~/.vim/swap,/tmp
+
+" Keep more backups for one file
+autocmd BufWritePre * let &backupext = strftime(".%m-%d-%H-%M")
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Interface
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set colorscheme
+colorscheme elflord
+
+" Enable syntax highlight
+syntax on
+
+"show mode
+set showmode
+
+" Show ruler
+set ruler
+
+" Dynamic title
+set title
+
+" Display line number
+set number
+"set relativenumber
+
+" Always have a status line
+set laststatus=2
+
+" Allow to display incomplete line
+set display=lastline
+
+" cursor line
+set cursorline
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Search
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Highlight search things
+set hlsearch
+
+" Ignore case when searching
+set smartcase
+set ignorecase
+
+" Incremental match when searching
+set incsearch
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indent
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Smart indet
+set smartindent
+
+" tab
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
+set noexpandtab
+
+filetype plugin indent on
+"for python
+autocmd FileType python setlocal expandtab smarttab shiftwidth=4 softtabstop=4
+"for wiki
+autocmd FileType flexwiki setlocal noexpandtab smarttab shiftwidth=4 softtabstop=4
+"for mail
+autocmd FileType mail set textwidth=72
+"for markdown
+autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
+
+" Set auto-formating
+set formatoptions+=mM
+set wrap
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" move one line
+noremap j gj
+noremap k gk
+
+" Tab naviation
+nnoremap tp :tabprevious<CR>
+nnoremap tn :tabnext<CR>
+nnoremap to :tabnew<CR>
+nnoremap tc :tabclose<CR>
+nnoremap gf <C-W>gf
+
+" Textwidth=78
+noremap tw :set textwidth=78
+
+" Move among windows
+noremap <C-h> <C-W>h
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-l> <C-W>l
+noremap <C-W> <C-W><C-W>
+
+" Line completion
+inoremap <c-l> <c-x><c-l>
+" Filename completion
+inoremap <c-f> <c-x><c-f>
+
+" write copy and paste
+noremap <F2> :w<CR>
+inoremap <F2> <esc>:w<cr>a
+
+" f3 copy sesected to xsel
+vmap <F3> :w !xsel -i -p<CR><CR>
+
+" f4 paste through xsel
+noremap <F4> :r!xsel -p<CR>
+inoremap <F4> <ESC>:r!xsel -p<CR>
+
+"insert [time]
+noremap <F5> :read !date +"\%a \%b \%d, \%Y"<cr>o- - -<esc>o<esc>
+inoremap <F5> <esc>:read !date +"\%a \%b \%d, \%Y"<cr>o- - -<esc>o<esc>
+
+" NERDTreeToggle
+nnoremap <silent> <F6> :NERDTreeToggle<CR>
+inoremap <silent> <F6> <ESC>:NERDTreeToggle<CR>
+
+" Quickfix window
+nnoremap <F7> :call ToggleList("Quickfix List", 'c')<CR>
+inoremap <F7> <ESC>:call ToggleList("Quickfix List", 'c')<CR>
+
+" Toggle Tagbar
+nnoremap <silent> <F8> :TagbarToggle<CR>
+inoremap <silent> <F8> <ESC>:TagbarToggle<CR>
+
+" Grep search tools
+nnoremap <F9> :Rgrep<CR>
+
+" Save & Make
+nnoremap <F10> :w<CR>:make! %< CC=gcc CFLAGS="-g -Wall"<CR>:!./%<<CR>
+inoremap <F10> <ESC>:w<CR>:make! %< CC=gcc CFLAGS="-g -Wall"<CR>:!./%<<CR>
+
+" quickfix, cn cp
+nnoremap <silent> <F11> :cprev<CR>
+inoremap <silent> <F11> <ESC>:cprev<CR>
+nnoremap <silent> <F12> :cnext<CR>
+inoremap <silent> <F12> <ESC>:cnext<CR>
+
+" Cscope mappings
+nmap <C-\>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>c :scs find c <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>t :scs find t <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>e :scs find e <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
+nmap <C-\>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
+
+" change leader key to ,
+let mapleader = ","
+" vim-EasyMotion_leader_key 
+let g:EasyMotion_leader_key = '<Leader>'
+
+" Use <space> to toggle fold
+nnoremap <silent> <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins setting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" au FileType c,cpp so ~/.vim/c.vim
+
+" Ctrl - \ inputmethod
+let g:vimim_map='c-bslash'
+
+" Set Tagbar width
+let tagbar_width = 35
+
+" Super tab completion type
+let g:SuperTabDefaultCompletionType = "context"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle Quickfix function
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! GetBufferList()
+  redir =>buflist
+  silent! ls
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+"nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
+"nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+filetype off
+
+set runtimepath+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+Bundle 'Align'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Tagbar'
+Bundle 'fcitx.vim'
+Bundle 'The-NERD-tree'
+Bundle 'The-NERD-Commenter'
+Bundle 'snipMate'
+Bundle 'SuperTab-continued.'
+Bundle 'grep.vim'
+Bundle 'DrawIt'
+Bundle 'xml.vim'
+Bundle 'git://github.com/plasticboy/vim-markdown.git'
+filetype plugin on
+filetype plugin indent on
+
