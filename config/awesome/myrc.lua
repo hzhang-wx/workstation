@@ -9,7 +9,7 @@ tags = {}
 scount = screen.count()
 for s = 1, scount do
 	if scount == 1 then
-		tags[s] = awful.tag({ " Bash ", " Chrome ", " IRC ", " VIM ", " Misc " }, s, layouts[1])
+		tags[s] = awful.tag({ " B.a.s.h ", " C.h.r.o.m.e ", " I.R.C ", " V.I.M ", " M.i.s.c " }, s, layouts[1])
 	end
 	if scount == 2 then
 		if s == 1 then
