@@ -29,21 +29,7 @@ set autochdir
 " set foldnestmax=1
 " set foldmethod=syntax
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Backup
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Enable backup
-set backup
-
-" Set backup directory
-set backupdir=~/.vim/backup
-
-" Set swap file directory
-set directory=~/.vim/swap,/tmp
-
-" Keep more backups for one file
-autocmd BufWritePre * let &backupext = strftime(".%m-%d-%H-%M")
+set t_Co=256
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Interface
@@ -117,6 +103,9 @@ autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
 " Set auto-formating
 set formatoptions+=mM
 set wrap
+
+" Set go for gvim
+set go=
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
@@ -255,7 +244,6 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 filetype off
@@ -277,6 +265,10 @@ Bundle 'grep.vim'
 Bundle 'DrawIt'
 Bundle 'xml.vim'
 Bundle 'git://github.com/plasticboy/vim-markdown.git'
+Bundle 'https://github.com/altercation/vim-colors-solarized.git'
+let g:solarized_termcolors=256
+colorscheme solarized
+
 filetype plugin on
 filetype plugin indent on
 

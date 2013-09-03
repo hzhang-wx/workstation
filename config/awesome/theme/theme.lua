@@ -78,7 +78,7 @@ theme.titlebar_maximized_button_focus_active  = theme_dir .. "titlebar/maximized
 
 -- You can use your own command to set your wallpaper
 -- theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/default/background.png" }
-theme.wallpaper_cmd = { "awsetbg" .. " " .. theme_dir .. "background.png" }
+theme.wallpaper_cmd = { "awsetbg" .. " " .. theme_dir .. fedora.jpg" }
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = theme_dir .. "layouts/fairhw.png"

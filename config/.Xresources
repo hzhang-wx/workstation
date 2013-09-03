@@ -27,8 +27,8 @@ xterm*geometry: 80x24
 xterm*saveLines: 1024
 xterm*scrollBar: false
 xterm*loginshell: false
-xterm*background: black
-xterm*foreground: gray
+xterm*background: #2e3436
+xterm*foreground: green
 xterm*cursorBlink: false
 xterm*bellIsUrgent: true
 

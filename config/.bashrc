@@ -5,6 +5,7 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+
 # User specific aliases and functions
 
 export PATH=$PATH:/sbin:~/bin
@@ -42,6 +43,7 @@ alias gw='git show'
 alias la='ls -lAh --color=auto'
 alias ll='ls -lh --color=auto'
 alias vi='vim'
+alias vim='gvim'
 
 #set the screen title  
 case $TERM in  

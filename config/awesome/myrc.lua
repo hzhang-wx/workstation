@@ -1,9 +1,24 @@
 vicious = require("vicious")
 
+awful.util.spawn_with_shell("killall compton")
+awful.util.spawn_with_shell("compton -f -i 0.8 &")
+
 -- {{{ Tags
 tags = {}
-for s = 1, screen.count() do
- 	tags[s] = awful.tag({ " Bash ", " Chrome ", " IRC ", " VIM ", " Misc " }, s, layouts[1])
+
+scount = screen.count()
+for s = 1, scount do
+	if scount == 1 then
+		tags[s] = awful.tag({ " Bash ", " Chrome ", " IRC ", " VIM ", " Misc " }, s, layouts[1])
+	end
+	if scount == 2 then
+		if s == 1 then
+			tags[s] = awful.tag({" C.h.r.o.m.e     ", " I.R.C     ", "V.I.M     ", " M.i.s.c     " }, s, layouts[1])
+		end
+		if s == 2 then
+			tags[s] = awful.tag({ " B.a.s.h     ", "V.I.M     ", "M.i.s.c    " }, s, layouts[1])
+		end
+	end
 end
 -- }}}
 
