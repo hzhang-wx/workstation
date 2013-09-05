@@ -135,6 +135,9 @@ noremap < <C-W><
 noremap > <C-W>>
 noremap + <C-W>+
 noremap - <C-W>-
+noremap = <C-W>=
+noremap _ <C-W>_
+noremap \| <C-W>\|
 
 " Line completion
 inoremap <c-l> <c-x><c-l>
