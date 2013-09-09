@@ -106,6 +106,7 @@ set wrap
 
 " Set go for gvim
 set go=
+set mousemodel=popup
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
