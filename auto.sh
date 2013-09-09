@@ -13,10 +13,10 @@ cp -f config/.vimrc  ~/
 # Xinitrc
 cp -f config/.Xresources ~/
 cp -f config/.xinitrc ~/
-if ! [ ~/.vim/bundle ]; then
+if ! [ -d ~/.vim/bundle ]; then
 	mkdir ~/.vim/bundle
 fi
-if ! [ ~/.vim/bundle/vundle ]; then
+if ! [ -d ~/.vim/bundle/vundle ]; then
 	git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
