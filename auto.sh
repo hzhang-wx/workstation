@@ -4,6 +4,9 @@ if ! [ -d ~/.config ] ;then
 	mkdir ~/.config
 fi
 
+# Term
+sudo yum install -y rxvt-unicode-256color-ml
+
 # VIM
 sudo yum install -y gvim
 cp -f config/.vimrc  ~/
