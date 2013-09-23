@@ -1,0 +1,82 @@
+# Set encoding
+defutf8 on
+
+# Disable vbell
+vbell off
+
+# Disable login
+deflogin off
+
+# Dynamic title
+shelltitle '$ |bash'
+
+# Caption String
+caption always "%{= kR}[ %{G}%H %{r}][ %{=b b}%-w%{=rb db}%>%n %t%{-}%+w%{-b}%< %=%{R}][%{M}%D %M %d %{G}%c%{R}]"
+
+# Set scrollback
+defscrollback 10240
+
+# Startup message
+startup_message off
+
+# Set xterm's title
+hardstatus off
+hardstatus string "screen(@%H): %t"
+termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+
+# Set $TERM variable
+term screen-256color
+
+# Set message timeout
+msgwait 2
+
+# Set mapping timeout
+maptimeout 10
+
+# Automatically detach upon hangup
+autodetach on
+
+# Make the xterm scroller work in screen
+termcapinfo xterm* ti@:te@
+
+# Refresh the display when exiting programs
+altscreen on
+
+# Keyboard binding --------------------
+
+# alt-d: kill the window
+bindkey "^[d" kill
+
+# alt-j next window
+bindkey "^[l" next
+
+# alt-k previous window
+bindkey "^[h" prev
+
+# alt-q: other window
+bindkey "^[q" other
+
+# alt-w: window list
+bindkey "^[w" windowlist -b
+
+# Get rid of screen 0
+bind c screen 1
+bind 0 select 10
+
+# Create initial window
+screen 1
+
+# alt-t: create new window
+bindkey "^[t" screen 1
+
+# alt-num: select window
+bindkey "^[0" select 10
+bindkey "^[1" select 1
+bindkey "^[2" select 2
+bindkey "^[3" select 3
+bindkey "^[4" select 4
+bindkey "^[5" select 5
+bindkey "^[6" select 6
+bindkey "^[7" select 7
+bindkey "^[8" select 8
+bindkey "^[9" select 9
