@@ -102,7 +102,7 @@ autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
 
 " Set auto-formating
 set formatoptions+=mM
-set wrap
+set nowrap
 
 " Set go for gvim
 set go=
