@@ -44,7 +44,7 @@ alias gw='git show'
 alias la='ls -lAh --color=auto'
 alias ll='ls -lh --color=auto'
 alias vi='vim'
-alias vim='gvim'
+alias vim='gvim -v'
 
 #set the screen title  
 case $TERM in  

@@ -21,8 +21,7 @@ set wildmode=longest:full,full
 " Auto change current directory
 set autochdir
 
-" set mouse
-" set mouse=a
+set mouse=a
 
 " Lines folding
 " set foldenable
@@ -275,8 +274,9 @@ Bundle 'DrawIt'
 Bundle 'xml.vim'
 Bundle 'git://github.com/plasticboy/vim-markdown.git'
 Bundle 'https://github.com/altercation/vim-colors-solarized.git'
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 colorscheme solarized
+set background=dark
 
 filetype plugin on
 filetype plugin indent on
