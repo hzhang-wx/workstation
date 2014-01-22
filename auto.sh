@@ -5,13 +5,16 @@ if ! [ -d ~/.config ] ;then
 fi
 
 # Copy repos
-cp -f config/*.repo /etc/yum.repos.d/
+sudo cp -f config/*.repo /etc/yum.repos.d/
 
 # Google chrome
 sudo yum install -y google-chrome-stable
 
 # Term
 sudo yum install -y rxvt-unicode-256color-ml
+
+# Bashrc
+cp -f config/.bashrc ~/
 
 # VIM
 sudo yum install -y gvim
@@ -21,7 +24,10 @@ cp -f config/.vimrc  ~/
 
 # Xinitrc
 cp -f config/.Xresources ~/
+xrdb ~/.Xresources
+
 cp -f config/.xinitrc ~/
+
 if ! [ -d ~/.vim/bundle ]; then
 	mkdir ~/.vim/bundle
 fi
