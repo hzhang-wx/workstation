@@ -7,6 +7,9 @@ fi
 # Copy repos
 cp -f config/*.repo /etc/yum.repos.d/
 
+# Google chrome
+sudo yum install -y google-chrome-stable
+
 # Term
 sudo yum install -y rxvt-unicode-256color-ml
 
