@@ -4,6 +4,9 @@ if ! [ -d ~/.config ] ;then
 	mkdir ~/.config
 fi
 
+# Copy repos
+cp -f config/*.repo /etc/yum.repos.d/
+
 # Term
 sudo yum install -y rxvt-unicode-256color-ml
 
