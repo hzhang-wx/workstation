@@ -42,7 +42,7 @@ fi
 sudo yum install -y feh 
 sudo yum install -y cairo --setopt=protected_multilib=false
 sudo yum install -y awesome
-sudo yum install -y compton
+sudo rpm -ivh ftp://ftp.pbone.net/mirror/ftp5.gwdg.de/pub/opensuse/repositories/X11:/QtDesktop/Fedora_19/x86_64/compton-0.1.0-1.1.x86_64.rpm
 cp -rf config/awesome ~/.config/
 chmod 755 ~/.xinitrc
 sudo ln -s ~/.xinitrc /usr/bin/awesome-xinitrc
