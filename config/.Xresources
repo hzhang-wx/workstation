@@ -11,7 +11,7 @@ URxvt.fading: 0
 
 ! transparent
 URxvt*.transparent: true
-URxvt*.shading: 50
+URxvt*.shading: 30
 
 ! disable the scrollbar
 URxvt.scrollBar: False

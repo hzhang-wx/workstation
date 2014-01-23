@@ -17,8 +17,11 @@ sudo yum install -y rxvt-unicode-256color-ml
 cp -f config/.bashrc ~/
 
 # VIM
-sudo yum install -y gvim
+sudo yum install -y gvim vim
 cp -f config/.vimrc  ~/
+
+# Fcitx
+sudo yum install fcitx-table-chinese fcitx-cloudpinyin fcitx-configtool -y
 
 # FIXME: To do auto to Insatll Bundle
 
@@ -44,5 +47,8 @@ cp -rf config/awesome ~/.config/
 chmod 755 ~/.xinitrc
 sudo ln -s ~/.xinitrc /usr/bin/awesome-xinitrc
 sudo sed -i 's/awesome$/awesome-xinitrc/g' /usr/share/xsessions/awesome.desktop
+
+# Disable selinux
+sudo sed -i 's/^SELINUX=.*$/SELINUX=disabled/g' /etc/sysconfig/selinux
 
 echo "Please don't forget to Install Bundle"
