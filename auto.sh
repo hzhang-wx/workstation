@@ -13,6 +13,9 @@ sudo yum install -y google-chrome-stable
 # Term
 sudo yum install -y rxvt-unicode-256color-ml
 
+# Git
+sudo yum install -y git
+
 # Bashrc
 cp -f config/.bashrc ~/
 
@@ -32,7 +35,7 @@ xrdb ~/.Xresources
 cp -f config/.xinitrc ~/
 
 if ! [ -d ~/.vim/bundle ]; then
-	mkdir ~/.vim/bundle
+	mkdir -p  ~/.vim/bundle
 fi
 if ! [ -d ~/.vim/bundle/vundle ]; then
 	git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
