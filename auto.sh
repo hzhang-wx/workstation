@@ -41,6 +41,11 @@ if ! [ -d ~/.vim/bundle/vundle ]; then
 	git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
+# Dropbox
+sudo yum install -y  nautilus-extensions libgnome
+sudo rpm -ivh https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-1.6.0-1.fedora.x86_64.rpm
+dropbox start -i
+
 # Awesome
 sudo yum install -y feh 
 sudo yum install -y cairo --setopt=protected_multilib=false
