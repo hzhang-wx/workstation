@@ -90,8 +90,12 @@ set shiftwidth=8
 set noexpandtab
 
 filetype plugin indent on
+"for xhtml
+autocmd FileType xhtml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 "for python
-autocmd FileType python setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+"for c 
+autocmd FileType c setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 "for wiki
 autocmd FileType flexwiki setlocal expandtab tabstop=8 shiftwidth=4 softtabstop=4
 "for mail
@@ -274,10 +278,16 @@ Bundle 'DrawIt'
 Bundle 'xml.vim'
 Bundle 'git://github.com/plasticboy/vim-markdown.git'
 Bundle 'https://github.com/altercation/vim-colors-solarized.git'
+Bundle 'taglist.vim'
+Bundle 'winmanager'
 "let g:solarized_termcolors=256
 colorscheme solarized
 set background=dark
 
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<cr>
+
 filetype plugin on
 filetype plugin indent on
 
+set tags=~/git/soul/illumos-soulos/tags
