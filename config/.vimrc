@@ -135,11 +135,11 @@ noremap <C-k> <C-W>k
 noremap <C-l> <C-W>l
 noremap <C-x> <C-W>x
 noremap <C-W> <C-W><C-W>
+noremap ^ <C-W>+
+noremap & <C-W>-
 noremap < <C-W><
 noremap > <C-W>>
-noremap + <C-W>+
-noremap - <C-W>-
-noremap = <C-W>=
+noremap ! <C-W>=
 noremap _ <C-W>_
 noremap \| <C-W>\|
 
