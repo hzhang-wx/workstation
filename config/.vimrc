@@ -189,14 +189,21 @@ nnoremap <silent> <F12> :cnext<CR>
 inoremap <silent> <F12> <ESC>:cnext<CR>
 
 " Cscope mappings
-nmap <C-\>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-\>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-\>c :scs find c <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-\>t :scs find t <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-\>e :scs find e <C-R>=expand("<cword>")<CR><CR>	
-nmap <C-\>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
-nmap <C-\>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <C-\>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-s> :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-g> :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-c> :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-e> :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-f> :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-i> :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-d> :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+nmap <S-s> :scs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <S-g> :scs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <S-c> :scs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <S-e> :scs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <S-f> :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <S-i> :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <S-d> :scs find d <C-R>=expand("<cword>")<CR><CR>
 
 " change leader key to ,
 let mapleader = ","
@@ -289,7 +296,7 @@ nmap wm :WMToggle<cr>
 
 set nocscopeverbose " suppress 'duplicate connection' error
 
-function! AutoLoadCTagsAndCScope()
+function! AutoLoadCScope()
     let max = 20
     let dir = './'
     let i = 0
@@ -297,10 +304,6 @@ function! AutoLoadCTagsAndCScope()
     while isdirectory(dir) && i < max
         if filereadable(dir . 'cscope.out') 
             execute 'cs add ' . dir . 'cscope.out'
-            let break = 1
-        endif
-        if filereadable(dir . 'tags')
-            execute 'set tags =' . dir . 'tags'
             let break = 1
         endif
         if break == 1
@@ -312,10 +315,7 @@ function! AutoLoadCTagsAndCScope()
     endwhile
 endf
 
-call AutoLoadCTagsAndCScope()
-
-nmap <F7> :call AutoLoadCTagsAndCScope()<CR>
-
+call AutoLoadCScope()
 
 filetype plugin on
 filetype plugin indent on
