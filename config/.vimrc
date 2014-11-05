@@ -287,7 +287,35 @@ set background=dark
 let g:winManagerWindowLayout='FileExplorer|TagList'
 nmap wm :WMToggle<cr>
 
+set nocscopeverbose " suppress 'duplicate connection' error
+
+function! AutoLoadCTagsAndCScope()
+    let max = 20
+    let dir = './'
+    let i = 0
+    let break = 0
+    while isdirectory(dir) && i < max
+        if filereadable(dir . 'cscope.out') 
+            execute 'cs add ' . dir . 'cscope.out'
+            let break = 1
+        endif
+        if filereadable(dir . 'tags')
+            execute 'set tags =' . dir . 'tags'
+            let break = 1
+        endif
+        if break == 1
+            execute 'lcd ' . dir
+            break
+        endif
+        let dir = dir . '../'
+        let i = i + 1
+    endwhile
+endf
+
+call AutoLoadCTagsAndCScope()
+
+nmap <F7> :call AutoLoadCTagsAndCScope()<CR>
+
+
 filetype plugin on
 filetype plugin indent on
-
-set tags=~/git/soul/illumos-soulos/tags
