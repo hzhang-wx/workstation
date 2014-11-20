@@ -95,7 +95,7 @@ autocmd FileType xhtml setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 "for python
 autocmd FileType python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 "for c 
-autocmd FileType c setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd FileType c setlocal noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
 "for wiki
 autocmd FileType flexwiki setlocal expandtab tabstop=8 shiftwidth=4 softtabstop=4
 "for mail
