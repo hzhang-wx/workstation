@@ -111,4 +111,6 @@ LINE2="\[$BBlue\]\u\[$BBlue\]@\[$BBlue\]\h\[$BBlue\] $ \[$Color_Off\]"
 
 PS1="\n$sq_color\342\224\214\342\224\200$LINE1\n$sq_color\342\224\224\342\224\200\342\224\200>$LINE2"
 
+export LANG=zh_CN.UTF-8
+
 #- -----------------------------------
