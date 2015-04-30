@@ -63,4 +63,7 @@ sudo sed -i 's/^SELINUX=.*$/SELINUX=disabled/g' /etc/sysconfig/selinux
 # RunLevel
 sudo ln -sf /usr/lib/systemd/system/multi-user.target /etc/systemd/system/default.target
 
+# Misc
+sudo yum install -y cscope
+
 echo "Please don't forget to Install Bundle"
