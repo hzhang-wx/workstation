@@ -50,6 +50,7 @@ dropbox start -i
 sudo yum install -y feh 
 sudo yum install -y cairo --setopt=protected_multilib=false
 sudo yum install -y awesome
+sudo yum install -y vicious
 sudo rpm -ivh ftp://ftp.pbone.net/mirror/ftp5.gwdg.de/pub/opensuse/repositories/X11:/QtDesktop/Fedora_19/x86_64/compton-0.1.0-1.1.x86_64.rpm
 cp -rf config/awesome ~/.config/
 chmod 755 ~/.xinitrc
@@ -58,5 +59,8 @@ sudo sed -i 's/awesome$/awesome-xinitrc/g' /usr/share/xsessions/awesome.desktop
 
 # Disable selinux
 sudo sed -i 's/^SELINUX=.*$/SELINUX=disabled/g' /etc/sysconfig/selinux
+
+# RunLevel
+sudo ln -sf /usr/lib/systemd/system/multi-user.target /etc/systemd/system/default.target
 
 echo "Please don't forget to Install Bundle"
