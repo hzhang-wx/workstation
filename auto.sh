@@ -65,5 +65,6 @@ sudo ln -sf /usr/lib/systemd/system/multi-user.target /etc/systemd/system/defaul
 
 # Misc
 sudo yum install -y cscope
+sudo yum install -y ctags
 
 echo "Please don't forget to Install Bundle"
